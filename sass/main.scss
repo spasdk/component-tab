@@ -1,0 +1,14 @@
+// @author Stanislav Kalashnik <darkpark.main@gmail.com>
+// @license GNU GENERAL PUBLIC LICENSE Version 3
+
+/* spa-component-tab-item: release */
+.component.tabItem {
+    position:   absolute;
+    visibility: inherit;
+    width:      inherit;
+    height:     inherit;
+
+    &.hidden {
+        visibility: hidden;
+    }
+}
