@@ -1,0 +1,8 @@
+/* spa-component-tab-item: release */
+.component.tabItem {
+    position: absolute;
+    visibility: inherit;
+    width: inherit;
+    height: inherit; }
+    .component.tabItem.hidden {
+        visibility: hidden; }
