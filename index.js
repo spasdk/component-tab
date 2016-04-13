@@ -45,7 +45,7 @@ function TabItem ( config ) {
     // sanitize
     config = config || {};
 
-    if ( DEBUG ) {
+    if ( DEVELOP ) {
         if ( typeof config !== 'object' ) { throw new Error(__filename + ': wrong config type'); }
         if ( config.className && typeof config.className !== 'string' ) { throw new Error(__filename + ': wrong or empty config.className'); }
     }
@@ -84,7 +84,7 @@ TabItem.prototype.constructor = TabItem;
 TabItem.prototype.show = function ( data ) {
     var prev = null;
 
-    if ( DEBUG ) {
+    if ( DEVELOP ) {
         if ( !this.parent ) { throw new Error(__filename + ': no parent for tab item'); }
         if ( this.parent.constructor.name !== 'TabList' ) { throw new Error(__filename + ': wrong parent for tab item'); }
         if ( this.parent.currentTabItem && !(this.parent.currentTabItem instanceof TabItem) ) { throw new Error(__filename + ': wrong current tab item type'); }
@@ -122,7 +122,7 @@ TabItem.prototype.show = function ( data ) {
  * @fires module:stb/ui/tab.item~TabItem#hide
  */
 TabItem.prototype.hide = function () {
-    if ( DEBUG ) {
+    if ( DEVELOP ) {
         if ( !this.parent ) { throw new Error(__filename + ': no parent for tab item'); }
         if ( this.parent.constructor.name !== 'TabList' ) { throw new Error(__filename + ': wrong parent for tab item'); }
         if ( this.parent.currentTabItem && !(this.parent.currentTabItem instanceof TabItem) ) { throw new Error(__filename + ': wrong current tab item type'); }
