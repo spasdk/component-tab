@@ -54,7 +54,9 @@ function TabItem ( config ) {
     config.focusable = config.focusable || false;
 
     // set default className if classList property empty or undefined
-    config.className = 'tabItem hidden ' + (config.className || '');
+    //config.className = 'tabItem hidden ' + (config.className || '');
+
+    config.className += ' hidden';
 
     // prevent parent hiding
     config.visible = null;
@@ -69,6 +71,9 @@ function TabItem ( config ) {
 // inheritance
 TabItem.prototype = Object.create(Component.prototype);
 TabItem.prototype.constructor = TabItem;
+
+// set component name
+TabItem.prototype.name = 'spa-component-tab-item';
 
 
 /**

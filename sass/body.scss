@@ -1,0 +1,13 @@
+// @license The MIT License (MIT)
+// @copyright Stanislav Kalashnik <darkpark.main@gmail.com>
+
+@mixin spa-component-tab-item {
+    position:   absolute;
+    visibility: inherit;
+    width:      inherit;
+    height:     inherit;
+
+    &.hidden {
+        visibility: hidden;
+    }
+}

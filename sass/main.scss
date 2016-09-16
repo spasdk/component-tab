@@ -1,14 +1,14 @@
 // @license The MIT License (MIT)
 // @copyright Stanislav Kalashnik <darkpark.main@gmail.com>
 
-/* spa-component-tab-item: release */
-.component.tabItem {
-    position:   absolute;
-    visibility: inherit;
-    width:      inherit;
-    height:     inherit;
+@import "../node_modules/spa-component/sass/main";
+@import "body";
 
-    &.hidden {
-        visibility: hidden;
+.spa-component-tab-item {
+    @include spa-component-release;
+    @include spa-component-tab-item;
+
+    @if $DEVELOP {
+        @include spa-component-develop;
     }
 }

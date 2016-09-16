@@ -1,8 +1,14 @@
-/* spa-component-tab-item: release */
-.component.tabItem {
+.spa-component-tab-item {
+    box-sizing: border-box;
     position: absolute;
     visibility: inherit;
     width: inherit;
-    height: inherit; }
-    .component.tabItem.hidden {
+    height: inherit;
+    outline: 1px dashed #005000;
+    outline-offset: -1px; }
+    .spa-component-tab-item.hidden {
+        display: none; }
+    .spa-component-tab-item.hidden {
         visibility: hidden; }
+    .spa-component-tab-item.focus {
+        outline: 1px dashed red; }
