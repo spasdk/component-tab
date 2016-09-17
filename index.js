@@ -92,7 +92,9 @@ TabItem.prototype.show = function ( data ) {
     if ( DEVELOP ) {
         if ( !this.parent ) { throw new Error(__filename + ': no parent for tab item'); }
         //if ( this.parent.constructor.name !== 'TabList' ) { throw new Error(__filename + ': wrong parent for tab item'); }
-        if ( this.parent.currentTabItem && !(this.parent.currentTabItem instanceof TabItem) ) { throw new Error(__filename + ': wrong current tab item type'); }
+        if ( this.parent.currentTabItem && !(this.parent.currentTabItem instanceof TabItem) ) {
+            throw new Error(__filename + ': wrong current tab item type');
+        }
     }
 
     // is it hidden
@@ -130,7 +132,9 @@ TabItem.prototype.hide = function () {
     if ( DEVELOP ) {
         if ( !this.parent ) { throw new Error(__filename + ': no parent for tab item'); }
         //if ( this.parent.constructor.name !== 'TabList' ) { throw new Error(__filename + ': wrong parent for tab item'); }
-        if ( this.parent.currentTabItem && !(this.parent.currentTabItem instanceof TabItem) ) { throw new Error(__filename + ': wrong current tab item type'); }
+        if ( this.parent.currentTabItem && !(this.parent.currentTabItem instanceof TabItem) ) {
+            throw new Error(__filename + ': wrong current tab item type');
+        }
     }
 
     if ( Component.prototype.hide.call(this) ) {
