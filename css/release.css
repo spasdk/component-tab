@@ -1,10 +1,10 @@
-.spa-component-tab-item {
+.spa-component-tab {
     box-sizing: border-box;
     position: absolute;
     visibility: inherit;
     width: inherit;
     height: inherit; }
-    .spa-component-tab-item.hidden {
+    .spa-component-tab.hidden {
         display: none; }
-    .spa-component-tab-item.hidden {
+    .spa-component-tab.hidden {
         visibility: hidden; }

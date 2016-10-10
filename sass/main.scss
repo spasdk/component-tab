@@ -4,9 +4,9 @@
 @import "../node_modules/spa-component/sass/main";
 @import "body";
 
-.spa-component-tab-item {
+.spa-component-tab {
     @include spa-component-release;
-    @include spa-component-tab-item;
+    @include spa-component-tab;
 
     @if $DEVELOP {
         @include spa-component-develop;

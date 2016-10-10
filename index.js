@@ -21,8 +21,8 @@ var Component = require('spa-component');
  * @param {Object} [config={}] init parameters (all inherited from the parent)
  *
  * @example
- * var TabItem = require('stb/ui/tab.item'),
- *     tabItem = new TabItem({
+ * var Tab = require('stb/ui/tab.item'),
+ *     tabItem = new Tab({
  *         $node: window.someId,
  *         children: [
  *             new Panel({
@@ -41,7 +41,7 @@ var Component = require('spa-component');
  *
  * tabList.add(tabItem);
  */
-function TabItem ( config ) {
+function Tab ( config ) {
     // sanitize
     config = config || {};
 
@@ -69,11 +69,11 @@ function TabItem ( config ) {
 
 
 // inheritance
-TabItem.prototype = Object.create(Component.prototype);
-TabItem.prototype.constructor = TabItem;
+Tab.prototype = Object.create(Component.prototype);
+Tab.prototype.constructor = Tab;
 
 // set component name
-TabItem.prototype.name = 'spa-component-tab-item';
+Tab.prototype.name = 'spa-component-tab';
 
 
 /**
@@ -84,15 +84,15 @@ TabItem.prototype.name = 'spa-component-tab-item';
  *
  * @return {boolean} operation status
  *
- * @fires module:stb/ui/tab.item~TabItem#show
+ * @fires module:stb/ui/tab.item~Tab#show
  */
-TabItem.prototype.show = function ( data ) {
+Tab.prototype.show = function ( data ) {
     var prev = null;
 
     if ( DEVELOP ) {
         if ( !this.parent ) { throw new Error(__filename + ': no parent for tab item'); }
         //if ( this.parent.constructor.name !== 'TabList' ) { throw new Error(__filename + ': wrong parent for tab item'); }
-        if ( this.parent.currentTabItem && !(this.parent.currentTabItem instanceof TabItem) ) {
+        if ( this.parent.currentTab && !(this.parent.currentTab instanceof Tab) ) {
             throw new Error(__filename + ': wrong current tab item type');
         }
     }
@@ -100,13 +100,13 @@ TabItem.prototype.show = function ( data ) {
     // is it hidden
     if ( !this.visible ) {
         // hide previous tab
-        if ( this.parent.currentTabItem ) {
-            prev = this.parent.currentTabItem;
+        if ( this.parent.currentTab ) {
+            prev = this.parent.currentTab;
             prev.hide(data);
         }
 
         Component.prototype.show.call(this, data);
-        this.parent.currentTabItem = this;
+        this.parent.currentTab = this;
 
         /*// there are some listeners
          if ( this.parent.events['switch'] ) {
@@ -126,19 +126,19 @@ TabItem.prototype.show = function ( data ) {
  *
  * @return {boolean} operation status
  *
- * @fires module:stb/ui/tab.item~TabItem#hide
+ * @fires module:stb/ui/tab.item~Tab#hide
  */
-TabItem.prototype.hide = function () {
+Tab.prototype.hide = function () {
     if ( DEVELOP ) {
         if ( !this.parent ) { throw new Error(__filename + ': no parent for tab item'); }
         //if ( this.parent.constructor.name !== 'TabList' ) { throw new Error(__filename + ': wrong parent for tab item'); }
-        if ( this.parent.currentTabItem && !(this.parent.currentTabItem instanceof TabItem) ) {
+        if ( this.parent.currentTab && !(this.parent.currentTab instanceof Tab) ) {
             throw new Error(__filename + ': wrong current tab item type');
         }
     }
 
     if ( Component.prototype.hide.call(this) ) {
-        this.parent.currentTabItem = null;
+        this.parent.currentTab = null;
 
         return true;
     }
@@ -149,4 +149,4 @@ TabItem.prototype.hide = function () {
 
 
 // public
-module.exports = TabItem;
+module.exports = Tab;
