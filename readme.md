@@ -1,5 +1,5 @@
-Tab item component
-==================
+Tab component
+=============
 
 [![Build Status](https://img.shields.io/travis/spasdk/component-tab.svg?style=flat-square)](https://travis-ci.org/spasdk/component-tab)
 [![NPM version](https://img.shields.io/npm/v/spa-component-tab.svg?style=flat-square)](https://www.npmjs.com/package/spa-component-tab)
@@ -7,7 +7,7 @@ Tab item component
 [![Gitter](https://img.shields.io/badge/gitter-join%20chat-blue.svg?style=flat-square)](https://gitter.im/DarkPark/spasdk)
 
 
-Panel is a component to build user interface, an instance of [Component](https://github.com/spasdk/component) module.
+Tab is a component to build user interface, an instance of [Component](https://github.com/spasdk/component) module.
 
 
 ## Installation ##
