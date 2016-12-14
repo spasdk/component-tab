@@ -46,8 +46,12 @@ function Tab ( config ) {
     config = config || {};
 
     if ( DEVELOP ) {
-        if ( typeof config !== 'object' ) { throw new Error(__filename + ': wrong config type'); }
-        if ( config.className && typeof config.className !== 'string' ) { throw new Error(__filename + ': wrong or empty config.className'); }
+        if ( typeof config !== 'object' ) {
+            throw new Error(__filename + ': wrong config type');
+        }
+        if ( 'className' in config && (!config.className || typeof config.className !== 'string') ) {
+            throw new Error(__filename + ': wrong or empty config.className');
+        }
     }
 
     // can't accept focus
@@ -90,8 +94,12 @@ Tab.prototype.show = function ( data ) {
     var prev = null;
 
     if ( DEVELOP ) {
-        if ( !this.parent ) { throw new Error(__filename + ': no parent for tab item'); }
-        //if ( this.parent.constructor.name !== 'TabList' ) { throw new Error(__filename + ': wrong parent for tab item'); }
+        if ( !this.parent ) {
+            throw new Error(__filename + ': no parent for tab item');
+        }
+        // if ( this.parent.constructor.name !== 'TabList' ) {
+        //     throw new Error(__filename + ': wrong parent for tab item');
+        // }
         if ( this.parent.currentTab && !(this.parent.currentTab instanceof Tab) ) {
             throw new Error(__filename + ': wrong current tab item type');
         }
@@ -130,8 +138,12 @@ Tab.prototype.show = function ( data ) {
  */
 Tab.prototype.hide = function () {
     if ( DEVELOP ) {
-        if ( !this.parent ) { throw new Error(__filename + ': no parent for tab item'); }
-        //if ( this.parent.constructor.name !== 'TabList' ) { throw new Error(__filename + ': wrong parent for tab item'); }
+        if ( !this.parent ) {
+            throw new Error(__filename + ': no parent for tab item');
+        }
+        // if ( this.parent.constructor.name !== 'TabList' ) {
+        //     throw new Error(__filename + ': wrong parent for tab item');
+        // }
         if ( this.parent.currentTab && !(this.parent.currentTab instanceof Tab) ) {
             throw new Error(__filename + ': wrong current tab item type');
         }
